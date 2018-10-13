@@ -1,0 +1,65 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+  crossorigin="anonymous">
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <input type="button" id="button" value="Agregar">
+  <div align=center>
+    <div class="container">
+      <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <td>Nombre</td>
+            <td> 1 </td>
+            <td> 2 </td>
+            <td> 3 </td>
+            <td> 4 </td>
+            <td> 5 </td>
+            <td> 6 </td>
+            <td> 7 </td>
+            <td> 8 </td>
+            <td> 9 </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col">Resultados</td>
+            <td *ngFor="let col of columnasObj" class="col">
+              <input type="radio" name="partido{{col.numero}}" id="id{{col.numero}}{{col.etiquetaL}}" [(ngModel)]="[var][col.numero]" value='L'/>
+              <input type="radio" name="partido{{col.numero}}" id="id{{col.numero}}{{col.etiquetaE}}" [(ngModel)]="col.numero" value='E' />
+              <input type="radio" name="partido{{col.numero}}" id="id{{col.numero}}{{col.etiquetaV}}" [(ngModel)]="col.numero" value='V'/>
+              <div style="display: flex">
+                <p>L&nbsp;&nbsp;</p>
+                <p>E&nbsp;&nbsp;</p>
+                <p>V</p>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td *ngFor="let col of columnasObj" width="50px">
+              <input type="radio" name="partido{{col.numero}}" id="id{{col.numero}}{{col.etiquetaL}}" />
+              <input type="radio" name="partido{{col.numero}}" id="id{{col.numero}}{{col.etiquetaE}}" />
+              <input type="radio" name="partido{{col.numero}}" id="id{{col.numero}}{{col.etiquetaV}}" />
+              <div style="display: flex">
+                  <p>L&nbsp;&nbsp;</p>
+                  <p>E&nbsp;&nbsp;</p>
+                  <p>V</p>
+                </div>
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+      <input type="radio" name="name1" [(ngModel)]="name" value='L'/>
+      <input type="radio" name="name1" [(ngModel)]="name" value='E'/>
+      <br>
+      {{name}}
+    </div>
+
+  </div>
+</div>
