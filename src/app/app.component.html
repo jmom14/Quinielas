@@ -26,29 +26,28 @@
         <tbody>
           <tr>
             <td class="col">Resultados</td>
-            <td *ngFor="let col of columnasObj" class="col">
-              <input type="radio" name="partido{{col.numero}}" id="id{{col.numero}}{{col.etiquetaL}}" [(ngModel)]="[var][col.numero]" value='L'/>
-              <input type="radio" name="partido{{col.numero}}" id="id{{col.numero}}{{col.etiquetaE}}" [(ngModel)]="col.numero" value='E' />
-              <input type="radio" name="partido{{col.numero}}" id="id{{col.numero}}{{col.etiquetaV}}" [(ngModel)]="col.numero" value='V'/>
+            <td *ngFor="let col of columnasObj; let i = index" class="col">
+
+              <input type="radio" name="partido{{col.numero}}{{i}}" id="id{{col.numero}}{{col.etiquetaL}}{{i}}" [(ngModel)]="col.numero" value='L'/>
+              <input type="radio" name="partido{{col.numero}}{{i}}" id="id{{col.numero}}{{col.etiquetaE}}{{i}}" [(ngModel)]="col.numero" value='E' />
+              <input type="radio" name="partido{{col.numero}}{{i}}" id="id{{col.numero}}{{col.etiquetaV}}{{i}}" [(ngModel)]="col.numero" value='V'/>
+
               <div style="display: flex">
                 <p>L&nbsp;&nbsp;</p>
                 <p>E&nbsp;&nbsp;</p>
                 <p>V</p>
               </div>
-            </td>
+            </td> 
           </tr>
 
           <tr>
             <td></td>
-            <td *ngFor="let col of columnasObj" width="50px">
-              <input type="radio" name="partido{{col.numero}}" id="id{{col.numero}}{{col.etiquetaL}}" />
-              <input type="radio" name="partido{{col.numero}}" id="id{{col.numero}}{{col.etiquetaE}}" />
-              <input type="radio" name="partido{{col.numero}}" id="id{{col.numero}}{{col.etiquetaV}}" />
-              <div style="display: flex">
-                  <p>L&nbsp;&nbsp;</p>
-                  <p>E&nbsp;&nbsp;</p>
-                  <p>V</p>
-                </div>
+              <td *ngFor="let col of columnasObj" width="50px"> 
+                <select>
+                  <option value="saab">L</option>
+                  <option value="mercedes">E</option>
+                  <option value="audi">V</option>
+              </select>
             </td>
           </tr>
 
@@ -57,6 +56,7 @@
       </table>
       <input type="radio" name="name1" [(ngModel)]="name" value='L'/>
       <input type="radio" name="name1" [(ngModel)]="name" value='E'/>
+      <input type="radio" name="name1" [(ngModel)]="name" value='V'/>
       <br>
       {{name}}
     </div>
